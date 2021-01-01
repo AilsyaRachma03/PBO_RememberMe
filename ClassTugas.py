@@ -5,7 +5,7 @@ db = mysql.connector.connect(
     password="",
     database = "rememberme"
 )
-
+#con itu untuk koneksi ke database kalau cursor buat eksekusi kode
 class Tugas:
     def __init__(self, IdTugas, NamaTugas, MataKuliah, TglPemberian, TglPengumpulan, DeadlineJam, KeteranganTugas ):
         self.IdTugas= IdTugas
@@ -15,9 +15,10 @@ class Tugas:
         self.TglPengumpulan= TglPengumpulan
         self.DeadlineJam= DeadlineJam
         self.KeteranganTugas= KeteranganTugas
+        
 class MenuTugas():
     @staticmethod
-    def menu():
+    def menuTugas():
         print("=== Remember Me ===","\n", "Pilihan Menu")
         print("1. Tampilkan Daftar Tugas")
         print("2. Cari Tugas")
@@ -114,11 +115,11 @@ class MenuTugas():
             except mysql.connector.Error as e:
                 print("Gagal Input : {}".format(e))
         else:
-            MenuTugas.menu()
+            MenuTugas.menuTugas()()
         
     @staticmethod
     def update(db):
-        print("Apakah Anda Ingin Melakukan Perubahan terhadap Data ?")
+        print("Apakah Anda Ingin Melakukan Perubahan terhadap Data Tugas ?")
         pilih=input("Masukan jawaban Iya/ Tidak : ")
         print("Sebelumnya lihat data di menu Menampilkan Data (1), untuk mengetahui Identitas lengkap data yang akan diubah")
         if pilih == "Iya":
@@ -140,11 +141,11 @@ class MenuTugas():
             except mysql.connector.Error as e:
                 print("Gagal Update Data : {}".format(e))
         else:
-            MenuTugas.menu()
+            MenuTugas.menuTugas()
 
     @staticmethod
     def hapus(db):
-        print("Apakah Anda Ingin Menghapus Data ?")
+        print("Apakah Anda Ingin Menghapus Data Tugas ?")
         pilih=input("Masukan jawaban Iya/ Tidak : ")
         if pilih == "Iya":
             try :
@@ -158,8 +159,8 @@ class MenuTugas():
             except mysql.connector.Error as e:
                 print("Gagal Hapus Data : {}".format(e))
         else:
-            MenuTugas.menu()
+            MenuTugas.menuTugas()
 
 while True:
-    MenuTugas.menu()
+    MenuTugas.menuTugas()
 

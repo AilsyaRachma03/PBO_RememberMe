@@ -7,10 +7,7 @@ db = mysql.connector.connect(
     password="",
     database = "rememberme"
 )
-
-# import mysql.connector
-# conn = mysql.connector.connect(host="localhost",port=3306,user="root",password="",database="rememberme")
-# cursor=conn.cursor()
+#con itu untuk koneksi ke database kalau cursor buat eksekusi kode
 
 class Jadwal:
     def __init__(self, IdJadwal, Hari, Jam, MataKuliah, Keterangan):
@@ -58,9 +55,6 @@ class MenuJadwal():
         elif menu == "0":
             from Menu import MenuUtama
             MenuUtama.menuUtama()
-            # from ClassMahasiswa import programBerjalan
-            # programBerjalan()
-            # exit()
         else:
             print("Menu salah!, Masukan Ulang!") 
 
@@ -124,7 +118,7 @@ class MenuJadwal():
     
     @staticmethod
     def update(db):
-        print("Apakah Anda Ingin Melakukan Perubahan terhadap Data ?")
+        print("Apakah Anda Ingin Melakukan Perubahan terhadap Data Jadwal ?")
         pilih=input("Masukan jawaban Iya/ Tidak : ")
         print("Sebelumnya lihat data di menu Menampilkan Data (1), untuk mengetahui Identitas lengkap data yang akan diubah")
         if pilih == "Iya":
@@ -148,7 +142,7 @@ class MenuJadwal():
 
     @staticmethod
     def hapus(db):
-        print("Apakah Anda Ingin Menghapus Data ?")
+        print("Apakah Anda Ingin Menghapus Data Jadwal ?")
         pilih=input("Masukan jawaban Iya/ Tidak : ")
         if pilih == "Iya":
             try :
